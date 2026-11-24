@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Monitoramento (API)" type="Application" factoryName="Application">
+    <envs>
+      <env name="SPRING_DOCKER_COMPOSE_ENABLED" value="false" />
+      <env name="DB_USER" value="postgres" />
+      <env name="DB_PASSWORD" value="Brs@cmo2128" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="br.edu.uva.tcc.monitoramento.MonitoramentoApplication" />
+    <module name="monitoramento" />
+    <option name="VM_PARAMETERS" value="-Dnet.bytebuddy.experimental=true" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
