@@ -7,7 +7,7 @@
 // ---------- CONFIGURAÇÃO ----------
 const char* WIFI_SSID = "Wokwi-GUEST";
 const char* WIFI_PASS = "";
-const char* URL_API   = "https://marshall-volunteer-among-here.trycloudflare.com/api/leituras";
+const char* URL_API   = "https://SEU-TUNEL.trycloudflare.com/api/leituras";
 const char* DISPOSITIVO_ID = "esp32-01";
 
 const float CORRENTE_MAX_A   = 5.0;   // ACS712 5 A, igual à faixa da API
