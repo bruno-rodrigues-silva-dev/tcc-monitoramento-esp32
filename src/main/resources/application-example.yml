@@ -1,0 +1,42 @@
+
+spring:
+  application:
+    name: monitoramento
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/monitoramento}
+    username: ${DB_USER:monitoramento}
+    password: ${DB_PASSWORD:SUA_SENHA}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+server:
+  port: ${PORT:8080}
+
+# Parâmetros do sistema (definidos na metodologia do TCC)
+monitoramento:
+  temperatura:
+    alerta: 50.0
+    critico: 60.0
+    histerese: 2.0
+
+  corrente:
+    alerta: 1.6
+    critico: 2.0
+    histerese: 0.0
+
+  estatistica:
+    sigmas: 3.0
+    margem: 0.05
+    consecutivas: 3
+    janela: 60
+    min-amostras: 60
+
+  timeout-comunicacao: 15s
+  verificacao-comunicacao-ms: 5000
+
+# Sobe o PostgreSQL sozinho (docker-compose.yml) ao rodar a API pelo IntelliJ.
+# Requer o Docker Desktop aberto.
+# O banco continua ligado quando a API para.
+spring.docker.compose.lifecycle-management: start-only

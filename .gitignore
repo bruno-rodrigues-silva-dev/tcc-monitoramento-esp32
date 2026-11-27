@@ -2,3 +2,5 @@ target/
 .idea/
 *.iml
 .DS_Store
+.run/
+src/main/resources/application.yml

@@ -1,3 +1,4 @@
+
 package br.edu.uva.tcc.monitoramento.web;
 
 import br.edu.uva.tcc.monitoramento.dto.AlertaResponse;
@@ -31,10 +32,18 @@ public class MonitoramentoController {
         this.service = service;
     }
 
-    /** Endpoint que o ESP32 chama a cada ~5 s. */
+    /**
+     * Endpoint que o ESP32 chama a cada ~5 s.
+     */
     @PostMapping("/leituras")
     @ResponseStatus(HttpStatus.CREATED)
     public RegistroResponse registrar(@Valid @RequestBody LeituraRequest req) {
+
+        System.out.println("====================================");
+        System.out.println("ESP32: LEITURA RECEBIDA PELO BACKEND!");
+        System.out.println("Endpoint: /api/leituras");
+        System.out.println("====================================");
+
         return service.registrar(req);
     }
 
@@ -55,7 +64,8 @@ public class MonitoramentoController {
     @GetMapping("/dispositivos/{id}/status")
     public DispositivoStatus status(@PathVariable String id) {
         return service.status(id).orElseThrow(() ->
-                new ResponseStatusException(HttpStatus.NOT_FOUND, "Dispositivo sem leituras: " + id));
+                new ResponseStatusException(HttpStatus.NOT_FOUND,
+                        "Dispositivo sem leituras: " + id));
     }
 
     private static int limitar(int limite) {
